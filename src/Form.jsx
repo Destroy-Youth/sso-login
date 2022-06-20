@@ -1,28 +1,57 @@
 import Cookies from "js-cookie";
+import { useState } from "react";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import "./App.css";
+import { login as loginService } from "./services";
 
 function Form() {
+  const [token, setToken] = useState();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+      email: "eve.holt@reqres.in",
+      password: "cityslicka",
+    },
+  });
 
-  function saveUserSession(userData) {
-    Cookies.set("session", userData.session, { domain: ".equihua-dy.dev" });
-    handleLogin();
+  async function login(userData) {
+    const newToken = await loginService(userData);
+    setToken(newToken);
+
+    if (window.location.hostname.includes("localhost")) {
+      Cookies.set("token", token, { domain: "localhost" });
+      console.log("coockie localhost");
+    } else {
+      Cookies.set("token", token, { domain: ".equihua-dy.dev" });
+    }
   }
 
-  function handleLogin() {
-    window.location.href = "https://www.subdomain.equihua-dy.dev/";
+  function redirect(appNum) {
+    if (window.location.hostname.includes("localhost")) {
+      window.location.href = "http://localhost:3001";
+    } else if (appNum === 1) {
+      window.location.href = "https://www.subdomain.equihua-dy.dev/";
+    } else {
+      window.location.href = "https://www.subdomain2.equihua-dy.dev/";
+    }
   }
 
   return (
-    <form onSubmit={handleSubmit(saveUserSession)}>
-      <input type="text" {...register("session")}></input>
-      <input type="submit" />
-    </form>
+    <>
+      <form onSubmit={handleSubmit(login)}>
+        <input type="text" {...register("email")}></input>
+        <input type="text" {...register("password")}></input>
+        <input type="submit" />
+      </form>
+      <button onClick={() => redirect(1)}>Go to app 1</button>
+      <button onClick={() => redirect(2)}>Go to app 2</button>
+      <h3>{token}</h3>
+    </>
   );
 }
 
