@@ -12,10 +12,10 @@ function App() {
 
   function saveUserSession(userData) {
     Cookies.set("session", userData.user);
-    Cookies.set("session", userData.user, { path: "equihua-dy.dev" });
-    Cookies.set("session", userData.user, { path: ".equihua-dy.dev" });
-    Cookies.set("session", userData.user, { path: "netlify.app" });
-    Cookies.set("session", userData.user, { path: ".netlify.app" });
+    Cookies.set("session", userData.user, { domain: "equihua-dy.dev" });
+    Cookies.set("session", userData.user, { domain: ".equihua-dy.dev" });
+    Cookies.set("session", userData.user, { domain: "netlify.app" });
+    Cookies.set("session", userData.user, { domain: ".netlify.app" });
     console.log("Coockies para .netlify.app", userData);
   }
 
