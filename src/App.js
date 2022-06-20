@@ -12,8 +12,8 @@ function App() {
 
   function saveUserSession(userData) {
     Cookies.set("session", userData.user);
-    Cookies.set("session", userData.user, { path: "mymoons.mx" });
-    console.log(userData);
+    Cookies.set("session", userData.user, { path: ".netlify.app" });
+    console.log("Coockies para .netlify.app", userData);
   }
 
   return (
