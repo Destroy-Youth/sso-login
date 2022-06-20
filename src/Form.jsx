@@ -21,11 +21,12 @@ function Form() {
 
   async function login(userData) {
     const newToken = await loginService(userData);
+    Cookies.remove("token");
     setToken(newToken);
 
     if (window.location.hostname.includes("localhost")) {
       Cookies.set("token", token, { domain: "localhost" });
-      console.log("coockie localhost");
+      console.log("cookie localhost");
     } else {
       Cookies.set("token", token, { domain: ".equihua-dy.dev" });
     }
