@@ -21,15 +21,17 @@ function Form() {
 
   async function login(userData) {
     const newToken = await loginService(userData);
-    Cookies.remove("token");
-    setToken(newToken);
+    if (Cookies.get("token")) {
+      Cookies.remove("token");
+    }
 
     if (window.location.hostname.includes("localhost")) {
-      Cookies.set("token", token, { domain: "localhost" });
+      Cookies.set("token", newToken, { domain: "localhost" });
       console.log("cookie localhost");
     } else {
-      Cookies.set("token", token, { domain: ".equihua-dy.dev" });
+      Cookies.set("token", newToken, { domain: ".equihua-dy.dev" });
     }
+    setToken(newToken);
   }
 
   function redirect(appNum) {
