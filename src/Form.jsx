@@ -31,7 +31,7 @@ function Form() {
       Cookies.set("token", newToken, { domain: "localhost" });
       console.log("cookie localhost");
     } else {
-      Cookies.set("token", newToken, { domain: ".equihua-dy.dev" });
+      Cookies.set("token", newToken, { domain: ".mymoons.mx" });
     }
     setToken(newToken);
   }
@@ -40,9 +40,9 @@ function Form() {
     if (window.location.hostname.includes("localhost")) {
       window.location.href = "http://localhost:3001";
     } else if (appNum === 1) {
-      window.location.href = "https://www.subdomain.equihua-dy.dev/";
+      window.location.href = "https://page1cookie.mymoons.mx/";
     } else {
-      window.location.href = "https://subdomain2.equihua-dy.dev/";
+      window.location.href = "https://page2cookie.mymoons.mx/";
     }
   }
 
