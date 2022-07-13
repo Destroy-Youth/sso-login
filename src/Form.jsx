@@ -14,13 +14,15 @@ function Form() {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      email: "eve.holt@reqres.in",
-      password: "cityslicka",
+      username: "carlos@canizal.com",
+      password: "canizal123",
     },
   });
 
   async function login(userData) {
-    const newToken = await loginService(userData);
+    const data = await loginService(userData);
+    console.log(data);
+    const newToken = data.sessionToken;
     if (Cookies.get("token")) {
       Cookies.remove("token");
     }
@@ -40,14 +42,14 @@ function Form() {
     } else if (appNum === 1) {
       window.location.href = "https://www.subdomain.equihua-dy.dev/";
     } else {
-      window.location.href = "https://www.subdomain2.equihua-dy.dev/";
+      window.location.href = "https://subdomain2.equihua-dy.dev/";
     }
   }
 
   return (
     <>
       <form onSubmit={handleSubmit(login)}>
-        <input type="text" {...register("email")}></input>
+        <input type="text" {...register("username")}></input>
         <input type="text" {...register("password")}></input>
         <input type="submit" />
       </form>
