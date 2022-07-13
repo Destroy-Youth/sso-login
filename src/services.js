@@ -8,14 +8,8 @@ export const login = async (userData) => {
   // b4app -> user dev-moons -> username is the mail
   // tomar el session token para posteriores peticiones
 
-  const config = {
-    headers:{
-      'Access-Control-Allow-Origin': '*'
-    }
-  }
-
   try {
-    const response = await axios.post(BASE_URL, userData, config);
+    const response = await axios.post(BASE_URL, userData);
     return response.data;
   } catch (error) {
     console.error(error);
