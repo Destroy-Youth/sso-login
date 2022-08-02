@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/Destroy-Youth/sso-login/compare/v1.2.0...v1.3.0) (2022-08-02)
+
+
+### Features
+
+* **Tst:** asdasddsa ([12852ad](https://github.com/Destroy-Youth/sso-login/commit/12852ad6d49c78ef9b71554282c77ce29e2989d4))
+
 ## [1.2.0](https://github.com/Destroy-Youth/sso-login/compare/v1.1.0...v1.2.0) (2022-08-02)
 
 
