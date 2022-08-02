@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/Destroy-Youth/sso-login/compare/v1.1.0...v1.2.0) (2022-08-02)
+
+
+### Features
+
+* **Test:** commit con estandard ([0c03735](https://github.com/Destroy-Youth/sso-login/commit/0c03735304c9d930571142363d56a208c1e07f15))
+
 ## [1.1.0](https://github.com/Destroy-Youth/sso-login/compare/v1.0.0...v1.1.0) (2022-08-02)
 
 
