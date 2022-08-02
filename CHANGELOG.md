@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/Destroy-Youth/sso-login/compare/v1.0.0...v1.1.0) (2022-08-02)
+
+
+### Features
+
+* **test:** Probano merges esde otra rama ([cb03d9e](https://github.com/Destroy-Youth/sso-login/commit/cb03d9ee72bcba2c5fdcfcba7f3807ca37bbf44e))
+
 ## 1.0.0 (2022-08-02)
 
 
